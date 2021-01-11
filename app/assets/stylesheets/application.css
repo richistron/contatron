@@ -13,3 +13,31 @@
  *= require_tree .
  *= require_self
  */
+
+:root {
+	--text: #000;
+	--background: #fff;
+}
+
+body, html {
+	margin: 0;
+	padding: 0;
+	font-size: 16px;
+}
+
+* {
+	font-family: 'Archivo', sans-serif;
+	font-weight: 400;
+}
+
+.content {
+	width: calc(100% - 30px);
+	padding: 15px;
+}
+
+.nav {
+	bottom: 0;
+	height: 50px;
+	position: fixed;
+	width: 100%;
+}
