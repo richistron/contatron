@@ -1,0 +1,9 @@
+
+<% if @current_user_id %>
+	<nav class="navbar fixed-bottom navbar-light bg-light">
+		<div class="container-fluid">
+			<%= link_to 'Logout' , logout_path, id: 'logout-btn' %>
+			<%= link_to 'Home' , root_path(params: { pp: 'disable' }), class: 'navbar-brand', id: 'home-btn' %>
+		</div>
+	</nav>
+<% end %>

@@ -10,16 +10,28 @@ class Tools {
 		this.id = id
 	}
 
-	closeAlert() {
+	closeAlert(time = 3500) {
 		const element = this.getElement()
-		element.onclick = () => {
+
+		const hide = () => {
 			element.classList.remove(this.showClass)
 			element.classList.add(this.hideClass)
+		}
+
+		const timeout = setTimeout(() => hide(), time)
+
+		element.onclick = () => {
+			if (timeout) clearTimeout(timeout)
+			hide()
 		}
 	}
 
 	getElement(): HTMLElement {
 		return document.getElementById(this.id)
+	}
+
+	disableClick() {
+		this.getElement().onclick = (e) => e.preventDefault()
 	}
 
 	debug() {
