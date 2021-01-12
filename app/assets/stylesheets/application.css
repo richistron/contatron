@@ -27,17 +27,5 @@ body, html {
 
 * {
 	font-family: 'Archivo', sans-serif;
-	font-weight: 400;
 }
 
-.content {
-	width: calc(100% - 30px);
-	padding: 15px;
-}
-
-.nav {
-	bottom: 0;
-	height: 50px;
-	position: fixed;
-	width: 100%;
-}
