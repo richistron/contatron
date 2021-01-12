@@ -5,7 +5,8 @@ class AuthController < ApplicationController
   def authenticate
     user = User.where(email: login_params[:email]).first
     if user.nil? || !user.authenticate(login_params[:password])
-      redirect_to login_url, notice: 'Invalid email/password combination'
+      flash[:error] = 'Invalid email/password combination'
+      redirect_to login_url
     else
       session[:user_id] = user.id
       redirect_to root_url, notice: 'Login success'
