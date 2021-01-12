@@ -1,24 +1,20 @@
-# README
+# Contatron
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Invoice software for Richistron Inc.
 
-Things you may want to cover:
+### Install
 
-* Ruby version
+```bash
+yarn
+bundle
+```
 
-* System dependencies
+### Dependencies
 
-* Configuration
+Make sure you are running **ruby 2.7.2** and **node v12.18.4**
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Package managers
+```bash
+gem install bundler
+npm i -g yarn
+```
