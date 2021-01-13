@@ -1,6 +1,6 @@
-import CustomElement from 'lib/CustomElement'
+import DOMElement from 'lib/DOMElement'
 
-class HideElement extends CustomElement {
+class HideElement extends DOMElement<HTMLDivElement> {
   readonly showClass: string = 'show'
   readonly hideClass: string = 'hide'
 

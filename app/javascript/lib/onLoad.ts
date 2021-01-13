@@ -1,4 +1,4 @@
-const onLoad = (fn: () => void): void => {
+export default (fn: () => void): void => {
   if (
     document.readyState === 'complete' ||
     document.readyState === 'interactive'
@@ -8,5 +8,3 @@ const onLoad = (fn: () => void): void => {
     document.addEventListener('DOMContentLoaded', fn)
   }
 }
-
-export default onLoad
