@@ -14,7 +14,7 @@ class AuthController < ApplicationController
   private
 
   def login_params
-    params.permit :email, :password
+    params.permit :email, :password, :commit, :authenticity_token
   end
 
   def authenticate

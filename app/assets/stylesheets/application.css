@@ -32,10 +32,3 @@ body, html {
 .container {
 	margin-top: 40px;
 }
-
-.alert-dismissible {
-	position: fixed;
-	top: min(10vh, 40px);
-	width: 100vw;
-}
-
