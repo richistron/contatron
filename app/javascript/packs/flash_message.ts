@@ -1,7 +1,6 @@
 import onLoad from 'lib/onLoad'
-import HideElement from 'lib/HideElement'
+import ToggleShowHide from 'lib/ToggleShowHide'
 
 onLoad(() => {
-  const el = new HideElement('flash-message-alert')
-  el.hideElement()
+  new ToggleShowHide('flash-message-alert', true)
 })

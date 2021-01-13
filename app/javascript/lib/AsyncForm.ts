@@ -4,22 +4,26 @@ export default class AsyncForm<Response> extends DOMElement<HTMLFormElement> {
   readonly fields: string[]
   readonly success: (json: Response) => void
   readonly error: (json: Response) => void
+  readonly url: string
 
   constructor({
     id,
     fields,
     success,
     error,
+    url,
   }: {
     id: string
     fields: string[]
     success
     error
+    url: string
   }) {
     super(id)
     this.fields = fields
     this.success = success
     this.error = error
+    this.url = url
     this.setEventListener()
   }
 
@@ -49,7 +53,7 @@ export default class AsyncForm<Response> extends DOMElement<HTMLFormElement> {
   }
 
   private async doRequest() {
-    return await fetch('/login', {
+    return await fetch(this.url, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
