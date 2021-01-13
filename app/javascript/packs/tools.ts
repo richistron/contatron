@@ -1,12 +1,11 @@
-import CustomElement from "packs/lib/CustomElement";
-import AlertElement from "packs/lib/AlertElement";
+import HideElement from "lib/HideElement";
 
-class Tools extends CustomElement {
-	public closeAlert() {
-		const el = new AlertElement(this.id)
-		el.closeAlert()
+const t = {
+	hideElement: (id: string) => {
+		const el = new HideElement(id)
+		el.hideElement()
 	}
 }
 
 // @ts-ignore
-window.Tools = Tools
+window.t = t

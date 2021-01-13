@@ -11,14 +11,6 @@ class CustomElement {
 	private getElement(): HTMLElement {
 		return document.getElementById(this.id)
 	}
-
-	disableClick(): void {
-		this.el.onclick = (e) => e.preventDefault()
-	}
-
-	debug(): void {
-		console.log(this.el)
-	}
 }
 
 
