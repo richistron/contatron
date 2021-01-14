@@ -6,19 +6,7 @@ export default class AsyncForm<Response> extends DOMElement<HTMLFormElement> {
   readonly error: (json: Response) => void
   readonly url: string
 
-  constructor({
-    id,
-    fields,
-    success,
-    error,
-    url,
-  }: {
-    id: string
-    fields: string[]
-    success
-    error
-    url: string
-  }) {
+  constructor({ id, fields, success, error, url }) {
     super(id)
     this.fields = fields
     this.success = success
