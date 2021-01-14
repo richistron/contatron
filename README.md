@@ -1,6 +1,6 @@
 # Contatron
 
-Invoice software for Richistron Inc.
+Archived repo
 
 ### Install
 
