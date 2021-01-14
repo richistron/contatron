@@ -16,6 +16,36 @@ class AuthController < ApplicationController
     redirect_to root_path, notice: 'Logout success'
   end
 
+  def forgot_password
+    @email = login_params[:email]
+
+    if @email
+      user = User.where(email: @email).first
+      if user
+        send_password_reset_mail user
+        flash[:notice] = 'Email sent'
+        redirect_to login_path
+      else
+        flash[:error] = 'user not found'
+      end
+    end
+  end
+
+  def set_new_password
+    @token = params[:token]
+    @password = params[:password]
+
+    if @token && @password
+      item = ResetPassword.where(token: @token).first
+      if item && is_time_valid?(item)
+        update_password(item)
+        redirect_to login_url
+      else
+        flash[:error] = 'Invalid token'
+      end
+    end
+  end
+
   private
 
   def login_params
@@ -61,5 +91,22 @@ class AuthController < ApplicationController
       email: user.email,
       phone: user.phone,
     }
+  end
+
+  def send_password_reset_mail(user)
+    reset_password = ResetPassword.create! user: user
+    UserMailer.password_reset(user, reset_password.token).deliver
+  end
+
+  def is_time_valid?(item)
+    item.expires > DateTime.now
+  end
+
+  def update_password(item)
+    user = User.find item.user_id
+    user.password = @password
+    user.save!
+    item.destroy
+    flash[:notice] = 'Password updated'
   end
 end
